@@ -50,8 +50,8 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            @foreach ($visis as $item)
-                                                {{ $item->visi }}
+                                            @foreach ($visis as $v)
+                                                {{ $v->visi }}
                                             @endforeach
                                         </td>
                                     </tr>
@@ -91,25 +91,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($misi as $data)
+                                                @foreach ($misi as $m)
                                                     @php($no = 1)
                                                     <tr>
                                                         <td>
                                                             {{ $loop->iteration }}
                                                         </td>
                                                         <td>
-                                                            {{ $data->misi }}
+                                                            {{ $m->misi }}
                                                         </td>
                                                         <td>
                                                             <a data-tip="editMisi"
-                                                                href="/visimisi-update/{{ $data->id }}"
+                                                                href="/misi-update/{{ $m->id }}"
                                                                 class="text-warning" data-toggle="modal"
                                                                 data-target="#editMisi">
                                                                 <i class="fas fa-edit">
                                                                 </i>
                                                             </a>
                                                             @include('modals.editmisi')
-                                                            <a href="/hapus/misi/{{ $data->id }}"
+                                                            <a href="/hapus/misi/{{ $m->id }}"
                                                                 class="btn btn-danger btn-flat btn-sm ml-1 btn-delete">
                                                                 <i class="fa fa-trash">
                                                                 </i>
@@ -147,12 +147,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                @foreach ($misi as $data)
+                                @foreach ($misi as $m)
                             </tr>
                             @endforeach
                             <tr>
                                 <td>
-                                    @foreach ($tujuan as $data)
+                                    @foreach ($tujuan as $t)
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-outline-secondary dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -164,7 +164,7 @@
                                                 <b>
                                                     Tujuan.{{ $loop->iteration }}
                                                 </b>
-                                                {{ $data->tujuan }}
+                                                {{ $t->tujuan }}
                                             </p>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" data-tip="editTujuan" data-toggle="modal"
@@ -197,7 +197,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <!-- Isi form untuk mengubah tujuan -->
-                                            <form action="/tujuan-update/{{ $data->id }}'" method="POST"
+                                            <form action="/tujuan-update/{{ $t->id }}'" method="POST"
                                                 enctype="multipart/form-data">
                                                 @method('PUT') @csrf
                                                 <div class="form-group">
@@ -236,8 +236,8 @@
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Batal</button>
                                             <!-- Tombol konfirmasi penghapusan -->
-                                            @foreach ($tujuan as $data)
-                                                <form action="/hapus-tujuan/{{ $data->id }}" method="POST"
+                                            @foreach ($tujuan as $t)
+                                                <form action="/hapus-tujuan/{{ $t->id }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @method('DELETE')
                                                     <!-- Menggunakan DELETE method untuk menghapus data -->
@@ -264,12 +264,12 @@
     </tr>
     <tr>
         <td>
-            @foreach ($misi as $data)
+            @foreach ($misi as $m)
                 <p>
                     <b>
                         Misi {{ $loop->iteration }}.
                     </b>
-                    {{ $data->misi }}
+                    {{ $m->misi }}
                 </p>
         </td>
     <tr>
@@ -328,46 +328,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($indikator as $item)
+                        @foreach ($indikator as $i)
                             <tr>
                                 <td>
                                     {{ $loop->iteration }}
                                 </td>
                                 <td>
-                                    {{ $item->indikator }}
+                                    {{ $i->indikator }}
                                 </td>
                                 <td>
-                                    {{ $item->target_kondisi_awal }}
+                                    {{ $i->target_kondisi_awal }}
                                 </td>
                                 <td>
-                                    {{ $item->target_tahun_2021 }}
+                                    {{ $i->target_tahun_2021 }}
                                 </td>
                                 <td>
-                                    {{ $item->target_tahun_2023 }}
+                                    {{ $i->target_tahun_2023 }}
                                 </td>
                                 <td>
-                                    {{ $item->target_tahun_2023 }}
+                                    {{ $i->target_tahun_2023 }}
                                 </td>
                                 <td>
-                                    {{ $item->target_tahun_2024 }}
+                                    {{ $i->target_tahun_2024 }}
                                 </td>
                                 <td>
-                                    {{ $item->target_tahun_2025 }}
+                                    {{ $i->target_tahun_2025 }}
                                 </td>
                                 <td>
-                                    {{ $item->target_kondisi_akhir }}
+                                    {{ $i->target_kondisi_akhir }}
                                 </td>
                                 <td>
-                                    {{ $item->satuan_pengukuran }}
+                                    {{ $i->satuan_pengukuran }}
                                 </td>
                                 <td>
-                                    <a data-tip="editIndikator" href="/indikator-update/{{ $item->id }}"
+                                    <a data-tip="editIndikator" href="/indikator-update/{{ $i->id }}"
                                         class="text-warning" data-toggle="modal" data-target="#editIndikatorModal">
                                         <i class="fas fa-edit">
                                         </i>
                                     </a>
                                     @include('modals.editindikator')
-                                    <a href="/hapus/indikator/{{ $item->id }}" data-tip="delete"
+                                    <a href="/hapus/indikator/{{ $i->id }}" data-tip="delete"
                                         class="text-danger">
                                         <i class="fas fa-trash">
                                         </i>

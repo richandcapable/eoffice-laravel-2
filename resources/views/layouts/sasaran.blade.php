@@ -45,6 +45,7 @@
                                                     <i class="fa fa-plus"></i>Tambah Sasaran
                                                 </button>
                                             </div>
+                                            
                                            @include('modals.tambahsasaran')                                                                                    
                                         </td>
                                         <td>
@@ -91,11 +92,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($sasaran as $item)
+                                                        @foreach($sasaran as $s)
                                                         <tr>
                                                             <td>{{$loop->iteration}}</td>
-                                                            <td>{{ $item->kode }}</td>
-                                                            <td>{{ $item->nama_sasaran }}</td>                                                  
+                                                            <td>{{ $s->kode }}</td>
+                                                            <td>{{ $s->nama_sasaran }}</td>                                                  
                                                             <td>
                                                                 <a href="detailsasaran">
                                                                     <button class="btn btn-primary btn-sm">

@@ -17,4 +17,8 @@ class Tujuan extends Model
     {
         return $this->belongsTo(Misi::class);
     }
+
+    public function indikator(){
+        return $this->hasMany(Indikator::class);
+    }
 }

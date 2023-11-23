@@ -20,6 +20,7 @@ class MisiController extends Controller
         
     }
 
+
     /**
      * create
      *
@@ -49,14 +50,13 @@ class MisiController extends Controller
         ]);
 
         //redirect to index
-        return redirect()
-            ->route('layouts.visimisi')
-            ->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect('visimisi')->withToastSuccess('Misi Disimpan!');;
+            
     }
 
     public function update(Request $request, $id)
     {
-        $data = Misi::findOrFail($id);
+        $data = Misi::find($id);
 
         $data->update($request->all());
         return redirect('/visimisi');

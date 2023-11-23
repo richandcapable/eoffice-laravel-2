@@ -9,11 +9,11 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/tujuan-store/{{ $data->id }}" method="POST">
+                                        <form action="/tujuan-store/{{ $m->id }}" method="POST">
                                             @csrf
                                             <div class="form-group">
                                                 <label for="misi">Misi</label>
-                                                <p>{{ $data->misi }}</p>
+                                                <p>{{ $m->misi }}</p>
                                             </div>
                                             <div class="form-group">
                                                 <label for="Tujuan">Tujuan</label>

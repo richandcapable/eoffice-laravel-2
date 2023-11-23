@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <!-- Isi form untuk mengubah tujuan -->
 
-                    <form action="/tujuan-update/{{ $data->id }}'" method="POST" enctype="multipart/form-data">
+                    <form action="/tujuan-update/{{ $t->id }}'" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">

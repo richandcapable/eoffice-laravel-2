@@ -47,14 +47,14 @@
                                     <tr>
                                         <td>
                                             <b>Visi</b>
-                                            @foreach ($visis as $item)
-                                                {{ $item->visi }}
+                                            @foreach ($visis as $v)
+                                                {{ $v->visi }}
                                             @endforeach
                                         </td>
                                         <td>
                                             <b>Tujuan</b>
-                                            @foreach ($tujuan as $data)
-                                                <p>{{ $data->tujuan }}</p>
+                                            @foreach ($tujuan as $t)
+                                                <p>{{ $t->tujuan }}</p>
                                             @endforeach
                                         </td>
                                     </tr>
@@ -66,8 +66,8 @@
                                 </div>
                                 <div class="container justify-content-center">
                                     <div class="row">
-                                        @foreach ($misi as $data)
-                                            {{ $data->misi }}
+                                        @foreach ($misi as $m)
+                                            {{ $m->misi }}
                                         @endforeach
                                     </div>
                                 </div>
@@ -75,8 +75,8 @@
                             <td>
                                 <b>Indikator Tujuan</b>
                                 <p>
-                                    @foreach ($indikator as $item)
-                                        {{ $item->indikator }}
+                                    @foreach ($indikator as $i)
+                                        {{ $i->indikator }}
                                     @endforeach
                                 </p>
                                 </tr>
@@ -123,24 +123,44 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>test123</td>
-                                    <td>1111</td>
-                                    <td>2222</td>
-                                    <td>3333</td>
-                                    <td>4444</td>
-                                    <td>5555</td>
-                                    <td>%</td>
-                                    <td>
-                                        <a data-tip="editIndikator" href="/indikator-update" class="text-warning"
-                                            data-toggle="modal" data-target="#editIndikator"><i
-                                                class="fas fa-edit"></i></a>
-                                        <a data-tip="hapusIndikator" href="/hapus-indikator" class="text-danger"
-                                            data-target="#hapusIndikator" data-toggle="modal"><i
-                                                class="fas fa-trash"></i></a>
-                                    </td>
-                                </tr>
+                                @foreach ($indikator_sasarans as $i)
+                                    <tr>
+                                        <td>
+                                            {{ $loop->iteration }}
+                                        </td>
+                                        <td>
+                                            {{ $i->indikator }}
+                                        </td>
+
+                                        <td>
+                                            {{ $i->target_tahun_2021 }}
+                                        </td>
+                                        <td>
+                                            {{ $i->target_tahun_2023 }}
+                                        </td>
+                                        <td>
+                                            {{ $i->target_tahun_2023 }}
+                                        </td>
+                                        <td>
+                                            {{ $i->target_tahun_2024 }}
+                                        </td>
+                                        <td>
+                                            {{ $i->target_tahun_2025 }}
+                                        </td>
+
+                                        <td>
+                                            {{ $i->satuan_pengukuran }}
+                                        </td>
+                                        <td>
+                                            <a data-tip="editIndikator" href="/indikator-update" class="text-warning"
+                                                data-toggle="modal" data-target="#editIndikator"><i
+                                                    class="fas fa-edit"></i></a>
+                                            <a data-tip="hapusIndikator" href="/hapus-indikator" class="text-danger"
+                                                data-target="#hapusIndikator" data-toggle="modal"><i
+                                                    class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 <!-- Tambahkan baris Indikator lainnya sesuai kebutuhan -->
                             </tbody>
                         </table>

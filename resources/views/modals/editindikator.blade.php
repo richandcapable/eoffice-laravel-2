@@ -11,7 +11,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="/indikator-update/{{ $item->id }}"
+                                                                <form action="/indikator-update/{{ $i->id }}"
                                                                     method="POST">
                                                                     @method('PUT')
                                                                     @csrf

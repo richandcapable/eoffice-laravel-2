@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Indikator extends Model
+class IndikatorSasaran extends Model
 {
     use HasFactory;
 
-    protected $table = 'indikators';
+    use HasFactory;
+    protected $table = 'indikator_sasarans';
     protected $primarykey = "id";
     protected $fillable = [
         'indikator',
-        'tujuan_id',
         'target_kondisi_awal',
         'target_tahun_2021',
         'target_tahun_2022',
@@ -21,10 +21,6 @@ class Indikator extends Model
         'target_tahun_2024',
         'target_tahun_2025',
         'target_kondisi_akhir',
-        'satuan_pengukuran',
+        'satuan_pengukuran'
     ];
-
-    public function Tujuan(){
-        return $this->belongsTo(Tujuan::class);
-    }
 }

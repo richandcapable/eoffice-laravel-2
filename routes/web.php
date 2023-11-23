@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VisiController;
 use App\Http\Controllers\MisiController;
 use App\Http\Controllers\IndikatorController;
+use App\Http\Controllers\IndikatorSasaranController;
 use App\Http\Controllers\TujuanController;
 use App\Http\Controllers\SasaranController;
 use App\Models\Indikator;
@@ -26,34 +27,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('detailsasaran', [DetailSasaranController::class, 'show']);
-// Route::get('visimisi', function () {
-//     return view('layouts.visimisi');
-// });
-Route::get('/visimisi', [VisiController::class, 'index']);
-Route::put('/visimisi-update/1', [VisiController::class, 'update']);
-Route::put('/visis', [VisiController::class, 'store'])->name('visi.store');
-Route::get('/visi/{id}', [VisiController::class, 'show']);
-
-// Route::put('/misis', [MisiController::class, 'store'])->name('misi.store');
 Route::get('layouts/sasaran', function () {
     return view('layouts.sasaran');
 });
-Route::resource('visis', \App\Http\Controllers\VisiController::class);
-Route::resource('misis', \App\Http\Controllers\VisiController::class);
+
+Route::get('layouts/detailsasaran', function () {
+    return view('layouts.detailsasaran');
+});
+
+Route::get('detailsasaran', [DetailSasaranController::class, 'show'])->name('layouts.detailsasaran');
+
+//VISI
+Route::get('/visimisi', [VisiController::class, 'index']);
+Route::put('/visimisi-update/{id}', [VisiController::class, 'update']);
 Route::put('/visis', [VisiController::class, 'store'])->name('visi.store');
-Route::put('/misis', [VisiController::class, 'store'])->name('misi.store');
-Route::get('layouts/visimisi', [VisiController::class, 'index'])->name('layouts.visimisi');
+Route::get('/visi/{id}', [VisiController::class, 'show']);
 
 //MISI
 Route::get('/misi/{id}', [MisiController::class, 'index']);
 Route::post('/misi-store', [MisiController::class, 'store']);
-Route::put('/visimisi-update/{id}', [MisiController::class, 'update']);
+Route::put('/misi-update/{id}', [MisiController::class, 'update']);
 Route::get('/hapus/misi/{id}', [MisiController::class, 'destroy'])->name('hapus');
 //INDIKATOR
 Route::post('/indikator-store/{id}', [IndikatorController::class, 'store']);
-Route::put('/indikator-update/{item}', [IndikatorController::class, 'update']);
+Route::put('/indikator-update/{id}', [IndikatorController::class, 'update']);
 Route::get('/hapus/indikator/{id}', [IndikatorController::class, 'destroy'])->name('hapus');
+Route::post('/indikatorsasaran-store', [IndikatorSasaranController::class, 'store']);
 //TUJUAN
 Route::post('/tujuan-store/{id}', [TujuanController::class, 'store']);
 Route::put('/tujuan-update/{id}', [TujuanController::class, 'update']);
@@ -63,5 +62,4 @@ Route::get('/sasaran', [SasaranController::class, 'index'])->name('layouts.sasar
 Route::post('/sasaran-store', [SasaranController::class, 'store']);
 Route::put('/sasaran-update/{id}', [SasaranController::class, 'update']);
 Route::delete('/hapus-sasaran/{id}', [SasaranController::class, 'destroy'])->name('hapus');
-
 Route::get('/sasaran/search', [SasaranController::class, 'search']);

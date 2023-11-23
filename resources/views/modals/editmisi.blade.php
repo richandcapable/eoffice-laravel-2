@@ -9,12 +9,12 @@
             </div>
             <div class="modal-body">
                 <!-- Isi form untuk mengubah misi -->
-                <form action="/visimisi-update/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                <form action="/misi-update/{{ $m->id }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label for="newMisi">Misi Baru</label>
-                        <input type="text" class="form-control" name="misi" placeholder="Masukkan misi baru" value="{{ $data->misi }}">
+                        <input type="text" class="form-control" name="misi" placeholder="Masukkan misi baru" value="{{ $m->misi }}">
                     </div>
             </div>
             <div class="modal-footer">

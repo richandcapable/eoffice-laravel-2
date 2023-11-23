@@ -14,6 +14,8 @@ class SasaranController extends Controller
         return view('layouts/sasaran',compact('sasaran'));
     }
 
+    
+
 
     public function store(Request $request){
         // validate form

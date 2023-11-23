@@ -15,8 +15,8 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 <!-- Tombol konfirmasi penghapusan -->
-                @foreach ($tujuan as $data)
-                    <form action="/hapus-tujuan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                @foreach ($tujuan as $t)
+                    <form action="/hapus-tujuan/{{ $t->id }}" method="POST" enctype="multipart/form-data">
                         @method('DELETE')
                         <!-- Menggunakan DELETE method untuk menghapus data -->
                         @csrf

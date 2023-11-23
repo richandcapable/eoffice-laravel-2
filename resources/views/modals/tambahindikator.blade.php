@@ -9,20 +9,20 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/indikator-store/{{ $data->id }}" method="POST">
+                                        <form action="/indikator-store/{{ $i->id }}" method="POST">
                                             @csrf
                                             <div class="form-group">
                                                 <label for="misiTujuan">Misi</label>
-                                                @foreach ($misi as $data)
-                                                    <p> {{ $data->misi }}
+                                                @foreach ($misi as $m)
+                                                    <p> {{ $m->misi }}
                                                 @endforeach
 
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="misiTujuan">Tujuan</label>
-                                                @foreach ($tujuan as $data)
-                                                <p> {{ $data->tujuan }}
+                                                @foreach ($tujuan as $t)
+                                                <p> {{ $t->tujuan }}
                                             @endforeach    
                                             </div>
 
